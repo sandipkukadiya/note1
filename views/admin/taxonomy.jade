@@ -1,0 +1,54 @@
+extends layout
+
+block content
+    .main-content(ng-controller="taxonomy", ng-clock='')
+        h1= title
+        .row
+          .col-md-3.pull-right
+            .input-group.mb15(style='margin-top: 20px;')
+              input.form-control(placeholder='Enter Search Term Here', ng-model='search')
+              
+        .row
+          .col-md-4
+            .form-group
+              label Name:
+              br
+              input.form-control(ng-model='taxonomy.title')
+            .form-group
+              label Parent Category:
+              br
+              input.form-control(type='hidden', ng-model='taxonomy.level')
+              select.form-control(ng-model='taxonomy.parent',  id='parent_category', ng-change='updateLevel(item)')
+                option(value='0') Select Parent
+                option(ng-repeat="option in taxonomies", value="{{option._id}}", data-level='option.level'){{option.title}}
+            .form-group
+              label Description
+              br
+              input.form-control(ng-model='taxonomy.description')
+            .form-group
+              label Image:
+              br
+              createformfield(placeholder='.col-xs-4', ng-model='taxonomy.image', inputtype='file')
+             
+            .form-group
+              button.btn.btn-primary(ng-click='saveTaxonomy()') Save
+          .col-md-7.pull-right
+            table.table.table-bordered.table-striped.mb0
+              thead
+                tr
+                  th ID 
+                  th Name 
+                  th Description 
+                  th Action
+              tbody
+                tr(ng-repeat='value in taxonomies|filter:search')
+                  td {{$index+1}} 
+                  td {{value.title}} 
+                  td {{value.description}}
+                  td
+                      button.btn.btn-primary.btn-sm(type='button', style='margin-right: 5px;', ng-click='editTaxonomy(value._id)')
+                        i.fa.fa-edit.mr5
+                        span Edit
+                      button.btn.btn-danger.btn-sm(type='button', style='margin-right: 5px;', ng-click='deleteTaxonomy(value._id)')
+                        i.fa.fa-trash.mr5
+                        span Delete

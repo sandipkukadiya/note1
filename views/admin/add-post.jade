@@ -1,0 +1,69 @@
+extends layout
+
+block content
+    .main-content(ng-controller="addPost", ng-clock='')
+        h1= title
+        
+        .row
+          form(method='post', action='/api/post')
+            .col-md-9
+              .form-group
+                input.form-control(placeholder='Enter Title Here', ng-model='post.post_title' , name='post_title')
+              .form-group
+                div(rich-text-editor, ng-model='post.post_content') 
+              .form-group
+                .panel.panel-default
+                  .panel-heading
+                    .pull-left Custom Fields
+                    .panel-controls
+                      a.panel-collapse(href='#', data-toggle='panel-collapse')
+                        i.panel-icon-chevron
+                      a.panel-refresh(href='#', data-toggle='panel-refresh')
+                        i.panel-icon-circular
+                      a.panel-remove(href='#', data-toggle='panel-remove')
+                        i.panel-icon-plus
+                  #custom_fields.panel-body(style='')
+                    .custom_field_group.form-group.row(data-ng-repeat="custom_field in post.custom_fields ")
+                      .col-xs-2
+                        input.form-control(type='text', ng-model='custom_field.key',disabled)
+                      .col-xs-8
+                        createformfield(placeholder='.col-xs-4', ng-model='custom_field.value', inputtype='{{custom_field.inputType}}')
+                      
+            .col-md-3.pull-right
+              .panel.panel-primary
+                .panel-heading
+                  .pull-left Publish
+                  .panel-controls
+                    a.panel-collapse(href='#', data-toggle='panel-collapse')
+                      i.panel-icon-chevron
+                    a.panel-refresh(href='#', data-toggle='panel-refresh')
+                      i.panel-icon-circular
+                    a.panel-remove(href='#', data-toggle='panel-remove')
+                      i.panel-icon-plus
+                .panel-body(style='')
+                  p
+                    | Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                  button.btn.btn-primary(type='button', id='publish_post_btn', ng-click='add_post()')= submit_btn
+              #categories_tree.panel.panel-primary
+                .panel-heading
+                  .pull-left Categories
+                  .panel-controls
+                    a.panel-collapse(href='#', data-toggle='panel-collapse')
+                      i.panel-icon-chevron
+                    a.panel-refresh(href='#', data-toggle='panel-refresh')
+                      i.panel-icon-circular
+                    a.panel-remove(href='#', data-toggle='panel-remove')
+                      i.panel-icon-plus
+                .panel-body(style='')
+                  ul
+                    li(ng-repeat='data in taxonomiesValues', ng-include="'tree_item_renderer'")
+
+                    script(type='text/ng-template', id='tree_item_renderer')
+                        input(type='checkbox', ng-model='data.chk', ng-change='setData(data)')
+                        |  {{ data.title }}
+                        ul
+                          li(ng-repeat='data in data.children', ng-include="'tree_item_renderer'")
+
+
+                    
+            

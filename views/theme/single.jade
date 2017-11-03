@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    article
+        .container(ng-controller='singlePost',ng-clock='')
+          .row
+            .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1  
+              h1 {{post.post_title}}
+              p.post-meta(ng-if='display(post.author)')
+                | Posted by 
+                a(href='#') {{post.author}}
+                |  on {{post.publish_date}}
+              p.post-content(ng-bind-html="post.post_content | trust")
+                
+        

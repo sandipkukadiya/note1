@@ -1,0 +1,51 @@
+extends layout
+
+block content
+    .main-content(ng-controller="addCustomPost")
+        h1= title
+        .row
+          form(method='post')
+            .col-md-9
+              .form-group
+                input.form-control(placeholder='Enter Title Here', ng-model='post.post_title', name='post_title')
+              .form-group
+                label Taxonomy
+                input.form-control(style='width:50%', placeholder='Enter Taxonomy Title Here', ng-model='post.post_taxonomy', name='post_title')
+              .form-group
+                .panel.panel-default
+                  .panel-heading
+                    .pull-left(style='font-weight:700') Custom Fields
+                    .panel-controls
+                      a.panel-collapse(href='#', data-toggle='panel-collapse')
+                        i.panel-icon-chevron
+                      a.panel-refresh(href='#', data-toggle='panel-refresh')
+                        i.panel-icon-circular
+                      a.panel-remove(href='#', data-toggle='panel-remove')
+                        i.panel-icon-plus
+                  #custom_fields.panel-body(style='')
+                    #btn-group.form-group(style='margin-bottom:20px;')
+                      button.btn.btn-default(type='button', ng-click='addCustomField()') Add Custom Field
+                    .custom-field-group.form-group.row(data-ng-repeat="custom_field in post.custom_fields")
+                      .col-xs-4
+                        input.form-control(placeholder='Custom Field Key',type='text', ng-model='custom_field.key')
+                      .col-xs-4
+                        select.form-control(placeholder='Input Type', data-ng-model='custom_field.inputType', ng-options='x for x in fieldNames')
+                      .col-xs-4.pull-right(style='text-align:right')
+                        a(href='javascript:void(0)', ng-click='removeCustomField($index)')
+                            span.fa.fa-close
+            .col-md-3.pull-right
+              .panel.panel-primary
+                .panel-heading
+                  .pull-left(style='font-weight:700') 
+                  .panel-controls
+                    a.panel-collapse(href='#', data-toggle='panel-collapse')
+                      i.panel-icon-chevron
+                    a.panel-refresh(href='#', data-toggle='panel-refresh')
+                      i.panel-icon-circular
+                    a.panel-remove(href='#', data-toggle='panel-remove')
+                      i.panel-icon-plus
+                .panel-body(style='')
+                  p
+                    | Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                  button.btn.btn-primary(type='button', id='publish_post_btn', ng-click='addCustomPost()')= submit_btn
+              

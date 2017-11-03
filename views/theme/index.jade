@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    .container(ng-controller='index')
+      .row
+        .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+          .post-preview(ng-repeat='latest_post in latest_posts')
+            a(href='/post/{{latest_post.post_link}}')
+              h2.post-title
+                | {{latest_post.post_title}}
+              
+            p.post-meta
+              | Posted by 
+              a(href='#') {{latest_post.author}}
+              |  on {{latest_post.publish_date}}
+            p.post-content(ng-bind-html="latest_post.excerpt | trust")
+          hr
+          
+          // Pager
+          ul.pager
+            li.next
+              a(href='#') Older Posts →

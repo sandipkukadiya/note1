@@ -1,0 +1,49 @@
+extends layout
+
+block content
+    h1 Categories
+    .row
+      .col-md-3.pull-right
+        .input-group.mb15(style='margin-top: 20px;')
+          input.form-control.br0
+          span.input-group-btn
+            button.btn.btn-info(type='button')
+              i.fa.fa-search
+    .row
+      .col-md-4
+        .form-group
+          label Name:
+          br
+          input.form-control
+        .form-group
+          label Parent Category:
+          br
+          select.form-control
+            option 1 
+            option 2 
+            option 3 
+            option 4 
+            option 5 
+        .form-group
+          label Description
+          br
+          input.form-control
+        .form-group
+          label Image:
+          br
+          input(type='file')
+          img(src='', width='100', height='100')
+        .form-group
+          button.btn.btn-primary Save
+      .col-md-7.pull-right
+        table.table.table-bordered.table-striped.mb0
+          thead
+            tr
+              th Code 
+              th Company 
+              th.numeric Price 
+          tbody
+            tr
+              td(data-title='Code') AAC 
+              td(data-title='Company') AUSTRALIAN AGRICULTURAL COMPANY LIMITED. 
+              td.numeric(data-title='Price') $1.38 

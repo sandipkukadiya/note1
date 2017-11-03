@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    .container(ng-controller='archiveCtrl')
+      .row
+        
+        .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+          h1= value
+          .post-preview(ng-repeat='archive_post in archive_posts')
+            a(href='/post/{{archive_post.post_link}}')
+              h2.post-title
+                | {{archive_post.post_title}}
+              
+            p.post-meta
+              | Posted by 
+              a(href='#') {{archive_post.author}}
+              |  on {{archive_post.publish_date}}
+            p.post-content(ng-bind-html="archive_post.excerpt | trust")
+          hr
+          
+          // Pager
+          ul.pager
+            li.next
+              a(href='#') Older Posts →

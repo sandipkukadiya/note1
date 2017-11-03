@@ -1,0 +1,63 @@
+extends layout
+
+block content
+            h1 Add Post
+            .row
+              .col-md-9
+                .form-group
+                  input.form-control(placeholder='Enter Title Here')
+                .form-group
+                  textarea.bootstrap-wysiwyg(placeholder='Enter text ...')
+                .form-group
+                  .summernote
+                .form-group
+                  .panel.panel-default
+                    .panel-heading
+                      .pull-left Primary portlet
+                      .panel-controls
+                        a.panel-collapse(href='#', data-toggle='panel-collapse')
+                          i.panel-icon-chevron
+                        a.panel-refresh(href='#', data-toggle='panel-refresh')
+                          i.panel-icon-circular
+                        a.panel-remove(href='#', data-toggle='panel-remove')
+                          i.panel-icon-plus
+                    .panel-body(style='')
+                      .form-group
+                        .col-xs-2
+                          select.form-control
+                            option 1 
+                            option 2 
+                            option 3 
+                            option 4 
+                            option 5 
+                        .col-xs-8
+                          input.form-control(placeholder='.col-xs-4')
+                      .form-group(style='margin-top:20px;')
+                        button.btn.btn-default Add Custom Field
+              .col-md-3.pull-right
+                .panel.panel-primary
+                  .panel-heading
+                    .pull-left Primary portlet
+                    .panel-controls
+                      a.panel-collapse(href='#', data-toggle='panel-collapse')
+                        i.panel-icon-chevron
+                      a.panel-refresh(href='#', data-toggle='panel-refresh')
+                        i.panel-icon-circular
+                      a.panel-remove(href='#', data-toggle='panel-remove')
+                        i.panel-icon-plus
+                  .panel-body(style='')
+                    p
+                      | Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                    button.btn.btn-primary(type='button') Publish
+                .panel.panel-deault
+                  .panel-heading
+                    .pull-left Primary portlet
+                    .panel-controls
+                      a.panel-collapse(href='#', data-toggle='panel-collapse')
+                        i.panel-icon-chevron
+                      a.panel-refresh(href='#', data-toggle='panel-refresh')
+                        i.panel-icon-circular
+                      a.panel-remove(href='#', data-toggle='panel-remove')
+                        i.panel-icon-plus
+                  .panel-body(style='')
+                    a(href='#') Set Featured Image

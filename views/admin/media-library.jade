@@ -1,0 +1,32 @@
+extends layout
+
+block content
+    .main-content(ng-controller="mediaLibrary")
+        h1 Media Library
+        .clearfix
+          button.btn.btn-default(type='button') Add New
+          .pull-right
+            button.btn.btn-default.btn-outline.btn-xs.no-border.disabled(type='button')
+              span.bl
+            button.btn.btn-default.btn-outline.no-border(type='button')
+              span.fa.fa-cog
+            .btn-group
+              button.btn.btn-default(type='button')
+                span.fa.fa-angle-left
+              button.btn.btn-default(type='button')
+                span.fa.fa-angle-right
+        hr
+        .row
+          .panel
+            .panel-heading.border  File dropzone 
+            .panel-body
+              form#my-awesome-dropzone.dropzone.dz-clickable(action='/admin/upload-files')
+                .dz-default.dz-message
+                  span Drop files here to upload
+        .row
+          .col-sm-12
+            .gallery
+              .col-md-2.col-sm-4.col-xs-6(ng-repeat='post in attachment_posts')
+                a(data-gallery='', title='Gallery Demo', href='javasccript:void(0)')
+                  img(alt='', ng-src="{{post.post_link}}")
+              

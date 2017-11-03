@@ -1,0 +1,48 @@
+extends layout
+
+block content
+    .main-content(ng-controller="allCustomPostTypes", ng-clock='')
+        .row
+            h1.col-md-6 All Custom Posts Types
+            .col-md-3.pull-right
+              .input-group.mb15(style='margin-top: 20px;')
+                input.form-control(ng-model='search')
+            .table-responsive
+              table.table.table-striped.table-bordered.table-hover.table-condensed.responsive.mb0(data-sortable-initialized='true', data-sortable='')
+                thead
+                  tr
+                    th id 
+                    th Post Type Name 
+                    th Action 
+                tbody
+                  tr(ng-repeat='custom_post in all_posts|filter:search')
+                    td {{$index+1}}
+                    td {{custom_post.option_value.post_type_name.name}} 
+                    td
+                      button.btn.btn-primary.btn-sm(type='button', style='margin-right: 5px;', ng-click='editCustomPost(custom_post._id)')
+                        i.fa.fa-edit.mr5
+                        span Edit
+                      button.btn.btn-danger.btn-sm(type='button', style='margin-right: 5px;', ng-click='deleteCustomPost(custom_post._id)')
+                        i.fa.fa-trash.mr5
+                        span Delete
+
+
+            ul.pagination.pagination-lg.clearfix.block
+              li
+                a(href='javascript:;') Previous
+              li
+                a(href='javascript:;') 1
+              li
+                a(href='javascript:;') 2
+              li
+                a(href='javascript:;') 3
+              li
+                a(href='javascript:;') 4
+              li
+                a(href='javascript:;') 5
+              li
+                a(href='javascript:;') 6
+              li
+                a(href='javascript:;') 7
+              li
+                a(href='javascript:;') Next

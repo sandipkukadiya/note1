@@ -1,0 +1,100 @@
+body {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #00B7FF;
+}
+.errors li{
+    list-style-type: none;
+}
+#messages ul {
+    list-style-type: none;
+}
+#messages li{
+    width: 50%;
+    margin: 0 5em;
+    padding: 10px;
+    border-radius: 6px;
+    color: #ffffff;
+    font-weight: 700;
+}
+#messages .error li{
+    background-color: #b64d4d;
+}
+#messages .success li,
+#messages .sucess li{
+    background-color: #4db6ac;
+}
+.separator-tiny{
+    height: 30px;
+}
+.separator-small{
+    height: 60px;
+}
+.separator-medium{
+    height: 80px;
+}
+.separator-large{
+    height: 100px;
+}
+.project-board {
+    position:relative;
+    height: 120px;
+    background-color: #42a5f5;
+    margin: 10px;
+    text-align: left;
+    border-radius: 4px;
+    font-size: 1.5em;
+}
+.main-content{
+    margin: 0 20px;
+}
+.project-title {
+    position: absolute;
+    margin-top: 8px;
+    color: #ffffff;
+}
+
+.dropdown-menu{
+    min-width:240px !important;
+}
+.center-align{
+    text-align:center;
+}
+.left-align{
+    text-align:left;
+}
+.right-align{
+    text-align:right;
+}
+.form-control{
+    margin: 5px 0px;
+}
+
+.custom-field-group{
+    background-color: rgb(239, 239, 240);
+    padding: 10px;
+    border-radius: 6px;
+}
+.gallery{
+    height: 300px;
+    overflow-y: auto;
+}
+.gallery a img{
+    border: 1.5px solid #9B9393;
+    height: 150px !important;
+}
+.gallery a:hover img{
+    transform: scale(1, 1) !important;
+}
+#categories_tree ul{
+    list-style-type: none; 
+}
+#categories_tree ul li span{
+    padding: 0px 5px;
+    vertical-align: top;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}

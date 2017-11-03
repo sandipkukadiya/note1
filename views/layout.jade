@@ -1,0 +1,170 @@
+doctype html
+html
+  head
+    title= title
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1.0')
+    
+    
+    link(rel='stylesheet', href='/admin/stylesheets/bootstrap.css')
+    link(rel='stylesheet', href='/admin/stylesheets/climacons-font.249593b4.css')
+    link(rel='stylesheet', href='/admin/stylesheets/feather.5694d1be.css')
+    link(rel='stylesheet', href='/admin/stylesheets/app.min.df5e9cc9.css')
+    link(rel='stylesheet', href='/admin/stylesheets/style.css')
+    link(rel='stylesheet', href='/admin/stylesheets/bootstrap3-wysihtml5.min.css')
+    link(rel='stylesheet', href='/admin/fonts/font-awesome/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/scripts/dropzone/dist/min/basic.min.css')
+    link(rel='stylesheet', href='/scripts/dropzone/dist/min/dropzone.min.css')
+
+    script(src='/admin/javascripts/jquery.2.2.4.min.js')
+    script(src='/scripts/angular/angular.js')
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js')
+  
+  body(ng-app='cms', layout='row', ng-cloak='')
+    .quick-launch-panel
+      .container
+        .quick-launcher-inner
+          a.close(href='javascript:;', data-toggle='quick-launch-panel') ×
+          .css-table-xs
+            .col
+              a(href='app-calendar.html')
+                i.icon-marquee
+                span Calendar
+            .col
+              a(href='app-gallery.html')
+                i.icon-drop
+                span Gallery
+            .col
+              a(href='app-messages.html')
+                i.icon-mail
+                span Messages
+            .col
+              a(href='app-social.html')
+                i.icon-speech-bubble
+                span Social
+            .col
+              a(href='charts-flot.html')
+                i.icon-pie-graph
+                span Analytics
+            .col
+              a(href='javascript:;')
+                i.icon-esc
+                span Documentation
+    .app.layout-fixed-header
+      .sidebar-panel.offscreen-left
+        .brand
+          .brand-logo
+            img(src='images/logo.c5cdf202.png', height='15', alt='')
+          a.toggle-sidebar.hidden-xs.hamburger-icon.v3(href='javascript:;', data-toggle='layout-small-menu')
+            span
+            span
+            span
+            span
+        nav(role='navigation')
+          ul.nav
+            li
+              a(href='/admin')
+                i.fa.fa-flask
+                span Dashboard
+            li
+              a(href='javascript:;')
+                i.fa.fa-toggle-on
+                span Posts
+              ul.sub-menu
+                li
+                  a(href='/admin/add-post')
+                    span Add Post
+                li
+                  a(href='/admin/all-posts')
+                    span All Posts
+                li
+                  a(href='/admin/categories')
+                    span Categories
+            li
+              a(href='javascript:;')
+                i.fa.fa-toggle-on
+                span Media
+            li
+              a(href='/admin/add-custom-post')
+                i.fa.fa-toggle-on
+                span Custom Post
+              ul.sub-menu
+                li
+                  a(href='/admin/custom-post')
+                    span Add Custom Post Type
+                li
+                  a(href='/admin/all-custom-post')
+                    span All Custom Post Types
+      .main-panel
+        header.header.navbar
+          .brand.visible-xs
+            .toggle-offscreen
+              a.hamburger-icon.visible-xs(href='#', data-toggle='offscreen', data-move='ltr')
+                span
+                span
+                span
+            .brand-logo
+              img(src='images/logo-dark.5ba260bb.png', height='15', alt='')
+            .toggle-chat
+              a.hamburger-icon.v2.visible-xs(href='javascript:;', data-toggle='layout-chat-open')
+                span
+                span
+                span
+          ul.nav.navbar-nav.hidden-xs
+            li
+              p.navbar-text  Dashboard 
+          ul.nav.navbar-nav.navbar-right.hidden-xs
+            li
+              a(href='javascript:;', data-toggle='quick-launch-panel')
+                i.fa.fa-circle-thin
+            li
+              a(href='javascript:;', data-toggle='dropdown')
+                img.header-avatar.img-circle.ml10(src='images/avatar.21d1cc35.jpg', alt='user', title='user')
+                span.pull-left Samuel Perkins
+              ul.dropdown-menu
+                li
+                  a(href='javascript:;') Settings
+                li
+                  a(href='javascript:;') Upgrade
+                li
+                  a(href='javascript:;')
+                    span.label.bg-danger.pull-right 34
+                    span Notifications
+                li
+                  a(href='javascript:;') Help
+                li
+                  a(href='signin.html') Logout        
+        block content
+
+        footer.content-footer
+            nav.footer-right
+              ul.nav
+                li
+                  a(href='javascript:;') Feedback
+                li
+                  a.scroll-up(href='javascript:;')
+                    i.fa.fa-angle-up
+            nav.footer-left.pull-left
+              ul.nav
+                li
+                  a(href='javascript:;')
+                    | Copyright 
+                    i.fa.fa-copyright
+                    span CMS
+                    |  2016. All rights reserved
+
+        script(src='/admin/javascripts/app.min.4fc8dd6e.js')
+        script(src='/admin/javascripts/bootstrap3-wysihtml5.all.min.js')
+        script(src='/admin/javascripts/angular-module.js')
+        script(src='/scripts/dropzone/dist/dropzone.js')
+        script(src='/admin/javascripts/angular-ui-notification.min.js')
+        script.
+          (function ($) {
+          'use strict';
+          
+            $('.bootstrap-wysiwyg').wysihtml5({
+                  toolbar: {
+                  fa: true
+            }
+            });
+          })(jQuery);

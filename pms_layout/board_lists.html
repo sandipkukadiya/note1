@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>KamalDhari-Infotech (Project Management System)</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+
+        <link rel="stylesheet" href="stylesheets/bootstrap.css">
+        <link rel="stylesheet" href="stylesheets/style.css">
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+        <script src="javascripts/jquery.2.2.4.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="javascripts/ng_members_area.js"></script>
+    </head>
+    <body ng-app="members_area">
+        <nav class="members-area-nav navbar navbar-default" ng-controller="myCtrl">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><strong>Boards</strong></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li> 
+                            <form class="navbar-form navbar-left">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                    <button type="submit" class="btn btn-default vertical-align-top"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                </div>
+
+                            </form>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" data-toggle="modal" data-target="#add-board-modal"><i class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i></a>
+                            <div id="add-board-modal" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Create</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <ul class="nav nav-tabs">
+                                                <li class="active"><a data-toggle="tab" href="#create-board">Create Board</a></li>
+                                                <li><a data-toggle="tab" href="#create-personal-team">Create Personal Team</a></li>
+                                                <li><a data-toggle="tab" href="#create-business-team">Create Business Team</a></li>
+                                            </ul>
+                                            <div class="tab-content">
+                                                <div id="create-board" class="tab-pane fade in active">
+                                                    <div class="form-group">
+                                                        <label for="board_title">Title:</label>
+                                                        <input type="text" class="form-control" ng-model="board.title" name="board_title" id="board_title">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="board_team">Team:</label>
+                                                        <select  class="form-control" ng-model="board.team" id="board_team" name="board_team">
+                                                            <option>none</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <button class="btn btn-primary" ng-click="create_board()">Create</button>
+                                                    </div>
+                                                </div>
+                                                <div id="create-personal-team" class="tab-pane fade">
+                                                    <div class="form-group">
+                                                        <label for="board_title">Name</label>
+                                                        <input type="text" class="form-control" ng-model="personalTeam.name" name="personal_team_name" id="personal_team_name">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="board_team">Description(optional)</label>
+                                                        <textarea  class="form-control" ng-model="personalTeam.desc" id="personal_team_desc" name="personal_team_desc"> 
+                                                        </textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <button class="btn btn-primary" ng-click="create_personal_team()">Create</button>
+                                                    </div>
+                                                </div>
+                                                <div id="create-business-team" class="tab-pane fade">
+                                                    <div class="form-group">
+                                                        <label for="board_title">Name</label>
+                                                        <input type="text" class="form-control" ng-model="businessTeam.name" name="business_team_name" id="business_team_name">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="board_team">Description(optional)</label>
+                                                        <textarea  class="form-control" ng-model="businessTeam.desc" id="business_team_desc" name="business_team_desc"> 
+                                                        </textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <button class="btn btn-primary" ng-click="create_business_team()" >Create</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a class="btn btn-default btn-sm dropdown-toggle"  style="padding: 7px;margin: 7px 0px;" data-toggle="dropdown" role="button" aria-haspopup="true"><strong>Parth Mahida</strong></a>
+                            <ul class="dropdown-menu">
+                                <li class="center-align">mahidaparth7</li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Profile</a></li>
+                                <li><a href="#">Cards</a></li>
+                                <li><a href="#">Settings</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                        <li></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"><i class="fa fa-bell-o fa-2x" aria-hidden="true"></i></a>
+                            <ul class="notification-dropdown dropdown-menu">
+                                <li class="center-align"><strong><h4>Notifications</h4></strong></li>
+                                <li><a href="#">Profile</a></li>
+                                <li><a href="#">Cards</a></li>
+                                <li><a href="#">Settings</a></li>
+                                <li><a href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <div class="main-content">
+            <div class="row board-title"><span class="pull-left" style="font-size: 2em;">Board-Title</span><span class="pull-right"><a href="javascript:void(0);" ng-click="show_menu()">...Show Menu</a></span></div>
+            <div class="right-menu col-md-5" >
+                
+                    <div class="menu-title">Menu</div>&nbsp;
+                    <div><span><i class="fa fa-user" aria-hidden="true"></i></span><span><i class="fa fa-user" aria-hidden="true"></i></span></div>
+                
+            </div>
+            <div class="single-list col-md-3">
+                <div class="list-header row">
+                    <div class="col-md-12"><h4 class="pull-left">List name</h4><span class="pull-right"><i class="fa fa-ellipsis-h " style="padding: 10px 0px;" aria-hidden="true"></i></span></div>
+                </div>
+                <div class="list-content row">
+                    <div class="list-item cursor-pointer" ng-click="list_modal()"><span class="list-title">Project Name</span></div>
+                    <div class="list-item cursor-pointer" ng-click="list_modal()"><span class="list-title">Project Name</span></div>
+                    <div class="list-item cursor-pointer" ng-click="list_modal()"><span class="list-title">Project Name</span></div>
+                </div>
+                <div class="list-footer row">
+                    <a href="javascript:void(0)" ng-click="add_card(list_name)"><h4>Add a card...</h4></a>
+                </div>
+            </div>
+            <div class="single-list col-md-3">
+                <div class="list-header row">
+                    <div class="col-md-12"><h4 class="pull-left">Add New List</h4></div>
+                </div>
+                <div class="new_list_form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="lists" placeholder="List Name">
+                    </div>
+                    <button class="btn btn-primary" href="javascript:void(0);" ng-click="add_list()">save</button>
+                </div>
+            </div>
+        </div>
+        <script src="javascripts/bootstrap.min.js"></script>
+    </body>
+</html>
